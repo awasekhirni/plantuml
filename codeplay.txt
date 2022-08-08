@@ -1,0 +1,9 @@
+best live editors for plantUML
+https://plantuml-editor.kkeisuke.com/
+https://www.planttext.com/
+
+alternatively use 
+vscode editor plantuml extensions
+plantuml - rich plantuml support for vscode by jebbs
+plantuml previewer- mebrahtom guesh
+plantuml-simpleviewer - well-ar

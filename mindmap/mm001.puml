@@ -1,0 +1,23 @@
+@startmindmap
+<style>
+mindmapDiagram {
+    node {
+        BackgroundColor lightYellow
+    }
+    :depth(0) {
+      BackGroundColor lightBlue
+    }
+}
+</style>
+
+* Linux
+** NixOS
+** Debian
+
+left side
+
+** Ubuntu
+*** Linux Mint
+*** Kubuntu
+*** Lubuntu
+@endmindmap

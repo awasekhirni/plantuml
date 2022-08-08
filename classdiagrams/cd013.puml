@@ -1,0 +1,13 @@
+@startuml
+
+class Duck extends Animal{
+    +String beakColor
+    +swim()
+    +quak()
+}
+
+class Fish extends Animal{
+    -int sizeInFeet
+    -canEact()
+}
+@enduml

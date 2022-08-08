@@ -1,0 +1,12 @@
+@startuml
+allowmixing
+
+actor     Actor
+usecase   Usecase
+
+json JSON {
+   "fruit":"Apple",
+   "size":"Large",
+   "color": ["Red", "Green"]
+}
+@enduml
