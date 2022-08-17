@@ -1,0 +1,14 @@
+@startuml
+sprite $primary [17x12/16z] bOqv3e1030CJRzPn9Fx_NWY7n4eqJ3TJs6OVa5pTpD-5tl3YyFHG-4DsqAOnWgawWp0r0KGagDuGMYMJxbMrBxzLPJ_O0G00
+
+
+class dummy {
+  Sample table.
+  ==
+  <$primary> int(10)
+  id int(10) -- A comment
+  field1 int(10)
+  .. Comment line, ignored ..
+  field2 varchar(128)
+}
+@enduml

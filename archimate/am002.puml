@@ -1,0 +1,40 @@
+@startuml
+header Inventory diagram
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include <tupadr3/devicons2/chrome>
+!include <tupadr3/devicons2/java>
+!include <tupadr3/devicons2/postgresql>
+!include <tupadr3/devicons2/nginx_original>
+!include <tupadr3/devicons2/react_original>
+!include <tupadr3/devicons2/android>
+!include <tupadr3/devicons2/groovy>
+!include <tupadr3/material/queue>
+!include <tupadr3/material/mail>
+!include <tupadr3/devicons2/dot_net_wordmark>
+!include <tupadr3/devicons2/oracle_original>
+!include <office/Concepts/web_services>
+skinparam linetype polyline
+HIDE_STEREOTYPE()
+SHOW_PERSON_PORTRAIT()
+
+System(client, "Client") {
+    Container(spa, "SPA allmydata-gui", "Container: javascript, React.js", "Graphical interface for requesting information", $sprite="react_original")
+    Container(mobile, "AllMyData mobile application", "Container: Android", "Graphical interface allowing to request information", $sprite="android")
+}    
+
+Enterprise_Boundary(organisation, "System organisation B") {
+    Container_Ext(saccounting, "Accounting system", "REST service", $sprite="web_services")
+}
+
+Enterprise_Boundary(si, "Information System") {
+    Container(static_resources, "allmydata-gui Web Application", "Container: nginx", "Delivers static resources (js, html, images ...)", $sprite="nginx_original")
+    Container(sm, "allmydata-api", "Container: Tomcat, Spring Boot", "REST service allowing to request information", $sprite="java")
+    Container(crep, "Companies repository", "Container", "SOAP webservice providing data about companies known by administration A", $sprite="dot_net_wordmark")
+    ContainerDb(crep_db, "companies-repository-db", "Container: SqlServer", "Stores companies data",$sprite="oracle_original")
+    Container(batch, "allmydata-batch", "Container: groovy", "Process requests, launched by cron every minute", $sprite="groovy")
+    ContainerQueue(queue, "requests-queue", "Container: RabbitMQ", "Stores requests", $sprite="queue")
+    ContainerDb(amd_db, "allmydata-db", "Container: PostgreSQL", "Stores requests history and status",$sprite="postgresql")
+    Container(sreporting, "service-reporting-pdf", "Container: Tomcat, JasperReport", "Reporting REST service", $sprite="java")
+    Container(smails, "mail server", "Container: Postfix", "Send emails", $sprite="mail")
+}
+@enduml

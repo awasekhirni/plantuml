@@ -1,0 +1,16 @@
+@startuml dependencies
+  header Dependencies diagram
+
+  !import am002.puml
+  
+  Rel(client, static_resources, "HTTPS")
+  Rel(spa,sm,"REST call","HTTPS")
+  Rel(sm,queue,"AMQP")
+  Rel(sm,amd_db,"psql")
+  Rel(batch, queue, "AMQP")
+  Rel_R(batch, saccounting, "HTTPS")
+  Rel(batch, sreporting,"HTTP")
+  Rel(batch, smails, "SMTP")
+
+  remove @unlinked
+@enduml
